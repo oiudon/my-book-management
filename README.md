@@ -28,7 +28,9 @@
 8. pip install "dj-rest-auth==2.2.*" # dj-rest-auth 2.2をインストール
 9. pip install "django-cors-headers==3.13.*" # django-cors-headersをインストール
 10. pip install psycopg2-binary # psycopg2-binaryをインストール
-11. VSCodeでflake8、black、isort、mypyの拡張機能追加 # 参照：https://qiita.com/siruku6/items/6a8412c41616b558df66　https://itc-engineering-blog.netlify.app/blogs/vscode-extensions-black-flake8　https://nujust.hatenablog.com/entry/2022/07/24/114715
+11. VSCodeでflake8、black、isort、mypyの拡張機能追加 # 参照：https://qiita.com/siruku6/items/6a8412c41616b558df66  
+https://itc-engineering-blog.netlify.app/blogs/vscode-extensions-black-flake8  
+https://nujust.hatenablog.com/entry/2022/07/24/114715
 
 ## Djangoプロジェクト〜アプリケーションの作成
 1. django-admin startproject config . # Djangoプロジェクトを作成

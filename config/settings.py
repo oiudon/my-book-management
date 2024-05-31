@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     # 書籍管理アプリ
     "apiv1.apps.Apiv1Config",
     "my_book_management.apps.MyBookManagementConfig",
+    # 管理サイトのインポート・エクスポート機能
+    "import_export",
 ]
 
 MIDDLEWARE = [
