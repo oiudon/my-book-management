@@ -11,18 +11,6 @@ class ReadingListResource(resources.ModelResource):
         model = ReadingList
 
 
-# Reviewモデルに統合する為にModelResourceを継承したクラスを作成
-class ReviewResource(resources.ModelResource):
-    class Meta:
-        model = Review
-
-
-# Categoryモデルに統合する為にModelResourceを継承したクラスを作成
-class CategoryResource(resources.ModelResource):
-    class Meta:
-        model = Category
-
-
 @admin.register(ReadingList)
 class ReadingListAdmin(ImportExportModelAdmin):
     list_display = (
@@ -75,6 +63,12 @@ class ReadingListAdmin(ImportExportModelAdmin):
     resource_class = ReadingListResource
 
 
+# Reviewモデルに統合する為にModelResourceを継承したクラスを作成
+class ReviewResource(resources.ModelResource):
+    class Meta:
+        model = Review
+
+
 @admin.register(Review)
 class ReviewAdmin(ImportExportModelAdmin):
     list_display = (
@@ -91,6 +85,12 @@ class ReviewAdmin(ImportExportModelAdmin):
 
     # resource_classにModelResourceを継承したクラスを設定
     resource_class = ReviewResource
+
+
+# Categoryモデルに統合する為にModelResourceを継承したクラスを作成
+class CategoryResource(resources.ModelResource):
+    class Meta:
+        model = Category
 
 
 @admin.register(Category)

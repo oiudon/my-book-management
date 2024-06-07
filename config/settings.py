@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "dj_rest_auth",
     "corsheaders",
+    "django_filters",
     # 書籍管理アプリ
     "apiv1.apps.Apiv1Config",
     "my_book_management.apps.MyBookManagementConfig",
