@@ -29,11 +29,12 @@ class CategoryListSerializer(serializers.ListSerializer):
     child = CategorySerializer()
 
 
-class ReadingListSerializer(WritableNestedModelSerializer):
+class ReadingListSerializer(serializers.ModelSerializer):
     """1.読書リストモデル用のシリアライザ"""
 
     # 関連先モデルのシリアライザを取得
-    category = CategoryListSerializer()
+    # しかし、これを定義すると中間テーブルの登録ができない（カテゴリモデルの登録になってしまう）
+    # category = CategoryListSerializer()
 
     class Meta:
         # 対象のモデルクラスを指定
@@ -80,8 +81,16 @@ class ReadingListListSerializer(serializers.ListSerializer):
 class ReviewSerializer(WritableNestedModelSerializer):
     """2.レビューモデル用のシリアライザ"""
 
-    # 関連先モデルのシリアライザを取得
+    # 関連先モデルのシリアライザを取得（多対多のフィールドは不可）
     reading_list_title = serializers.ReadOnlyField(source="reading_list.title")
+    reading_list_price = serializers.ReadOnlyField(source="reading_list.price")
+    reading_list_publisher = serializers.ReadOnlyField(source="reading_list.publisher")
+    reading_list_published_date = serializers.ReadOnlyField(
+        source="reading_list.published_date"
+    )
+    reading_list_completed_fg = serializers.ReadOnlyField(
+        source="reading_list.completed_fg"
+    )
 
     class Meta:
         # 対象のモデルクラスを指定
@@ -91,6 +100,10 @@ class ReviewSerializer(WritableNestedModelSerializer):
             "id",
             "reading_list",
             "reading_list_title",
+            "reading_list_price",
+            "reading_list_publisher",
+            "reading_list_published_date",
+            "reading_list_completed_fg",
             "text",
             "rating",
             "created_at",
